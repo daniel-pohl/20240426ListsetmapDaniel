@@ -5,20 +5,52 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        School school1 = new School();
-        school1.addStudent(new Student(1001, "Doe", "John"));
-        school1.addStudent(new Student(1002, "Johnson", "Alice"));
-        school1.addStudent(new Student(1003, "Lay", "Jay"));
+        Pharmacy pharmacy = new Pharmacy();
 
-        List<Student> students = school1.getStudentList();
+        Medication med1 = new Medication("Paracetamol", 5.99, true);
+        Medication med2 = new Medication("Aspirin", 3.49, false);
 
-        school1.printAllStudents();
+        pharmacy.save(med1);
+        pharmacy.save(med2);
 
-        System.out.println("findStudentByID=1011..." + school1.findStudentByID(1001));
+        System.out.println("Number of medications in the pharmacy: " + pharmacy.getCount());
 
-        school1.removeStudent(students.get(0));
+        pharmacy.printAllMedications();
 
-        school1.printAllStudents();
+        Medication foundMed = pharmacy.find("Paracetamol");
+        if (foundMed != null) {
+            System.out.println("Found medication: " + foundMed.getName());
+        } else {
+            System.out.println("Medication not found.");
+        }
+
+        pharmacy.delete("Paracetamol");
+
+        pharmacy.printAllMedications();
+
+
+
+
+
+
+
+
+
+//
+//        School school1 = new School();
+//        school1.addStudent(new Student(1001, "Doe", "John"));
+//        school1.addStudent(new Student(1002, "Johnson", "Alice"));
+//        school1.addStudent(new Student(1003, "Lay", "Jay"));
+//
+//        List<Student> students = school1.getStudentList();
+//
+//        school1.printAllStudents();
+//
+//        System.out.println("findStudentByID=1011..." + school1.findStudentByID(1001));
+//
+//        school1.removeStudent(students.get(0));
+//
+//        school1.printAllStudents();
 
 
 //        List<Student> studentList = new ArrayList<>();
