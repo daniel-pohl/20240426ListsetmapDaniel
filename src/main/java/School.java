@@ -2,10 +2,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class School {
-    private List<Student> studentList;
+    private List<Student> studentList = new ArrayList<>();
 
     public School() {
-        studentList = new ArrayList<>();
+
     }
 
     public void addStudent(Student student) {
@@ -18,15 +18,14 @@ public class School {
 
     public void printAllStudents(){
         System.out.println("List of Students:");
-        for (Student student : studentList) {
-            System.out.println("Name: " + student.getFirstName() + " " + student.getLastName() +
-                    ", Student ID: " + student.getStudentID());
+        for (Student s : studentList) {
+            System.out.println(s);
         }
     }
     public Student findStudentByID(int studentID) {
-        for (Student student : studentList) {
-            if (student.getStudentID() == studentID) {
-                return student;
+        for (Student s : studentList) {
+            if (s.getStudentID() == studentID) {
+                return s;
             }
         }
         return null;
